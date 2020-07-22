@@ -1,0 +1,3 @@
+"Include.Util.Stdin" INC
+STR N END STR What is your name?  END INP DEF
+STR Hi {N}! END MSG

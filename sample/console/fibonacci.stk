@@ -1,0 +1,9 @@
+"A" 1 DEF
+"B" A DEF
+A MSG A MSG
+FOR
+"C" A DEF
+"A" A B ADD DEF
+"B" C DEF
+A MSG
+EFOR
