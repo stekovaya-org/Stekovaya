@@ -248,6 +248,7 @@ STR A string END SLEN
 Load package, you can select package from these packages
  - Include.Util.Stdin
  - Include.Util.File
+ - Include.Util.Error
 
 Include.Util.Stdin is for INP, Include.Util.File is for control file, Include.Util.Error is for generate error / warn
 ```
