@@ -1,5 +1,5 @@
 ![](https://storage.googleapis.com/replit/images/1593218325636_c176cdd8d0b9c70f1102fcf77353d9b8.png)
-# Stekovaya
+# Stekovaya v1.1.1
 
 ## The Stack
 Push the numbers 1, 2, 7, 3 onto the stack
