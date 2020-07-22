@@ -1,2 +1,0 @@
-# Stekovaya
-Programming language
