@@ -1,5 +1,5 @@
 # README
-
+[![](https://repl.it/badge/github/stekovaya-org/Template)](https://repl.it/github/stekovaya-org/Template)
 ## Usage
 `stkvy.exe file` - Run program by file.
 
