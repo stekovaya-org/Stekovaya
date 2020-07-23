@@ -1,0 +1,19 @@
+"O" 100 DEF
+FOR
+"P" 0 DEF
+"R" -1 RND MUL DEF
+STR Step1. Random({P} / {O}): {R} END MSG
+R
+"P" P 1 ADD DEF
+P O NEQ THN 4 JBL
+O "X" ARR
+"Q" 0 DEF
+"D" "X" APOP DEF
+"L" O "X" LEN SUB DEF
+"Q" Q D D MUL D MUL D MUL 5 MUL ADD DEF
+STR Step2. Adding calculated datas({L} / {O}): {Q} END MSG
+"X" LEN 0 NEQ THN 11 JBL
+STR Step3. Dividing {Q} by {O} and multiplying by 4(1 / 1):  END Q O DIV 4 MUL SCO MSG
+2500 SLP
+"O" O 10 MUL DEF
+EFOR
