@@ -7,3 +7,12 @@
 ## v1.1.1
  - Removed all warns from mcs
  - Made sample folder
+## v1.2.0
+ - Added WTE command
+ - Added NWE command
+ - Added DNWE command
+ - Added DWTE command
+ - Added CLS command
+ - Added BEL command
+ - Added NMG command
+ - Added DNMG command

@@ -422,6 +422,22 @@ namespace SEPL {
 							}else{
 								stk.Push(Math.Atan(Double.Parse(h)));
 							}
+            }else if(q[j] == "WTE" && Ms.Including(hash,"Util.Error")){
+              Ms.Underflow(stk,1,t,i,j);
+              Console.Error.WriteLine(stk.Pop().ToString());
+            }else if(q[j] == "NWE" && Ms.Including(hash,"Util.Error")){
+              Ms.Underflow(stk,1,t,i,j);
+              Console.Error.Write(stk.Pop().ToString());
+            }else if(q[j] == "DNWE" && Ms.Including(hash,"Util.Error")){
+              Ms.Underflow(stk,1,t,i,j);
+              Console.Error.Write(stk.Peek().ToString());
+            }else if(q[j] == "DWTE" && Ms.Including(hash,"Util.Error")){
+              Ms.Underflow(stk,1,t,i,j);
+              Console.Error.WriteLine(stk.Peek().ToString());
+            }else if(q[j] == "BEL"){
+              Console.Beep();
+            }else if(q[j] == "CLS"){
+              Console.Clear();
             }else if(q[j] == "ERR" && Ms.Including(hash,"Util.Error")){
               Ms.Underflow(stk,1,t,i,j);
               int slcn = 0;
@@ -670,8 +686,14 @@ namespace SEPL {
                 stk.Push(decimal.Parse(Math.Pow(double.Parse(qu[1]),double.Parse(qu[0])).ToString()));
 							}
             }else if(q[j] == "DMSG"){
+              Ms.Underflow(stk,1,t,i,j);
               string h = stk.Peek().ToString();
               Console.WriteLine(h);
+              ilMain.Emit(OpCodes.Dup);
+              ilMain.EmitCall(OpCodes.Call,mwrite,null);
+            }else if(q[j] == "DNMG"){
+              Ms.Underflow(stk,1,t,i,j);
+              Console.Write(stk.Peek().ToString());
               ilMain.Emit(OpCodes.Dup);
               ilMain.EmitCall(OpCodes.Call,mwrite,null);
             }else if(q[j] == "EMP"){
@@ -733,6 +755,10 @@ namespace SEPL {
             }else if(q[j] == "MSG"){
               Ms.Underflow(stk,1,t,i,j);
               Console.WriteLine(stk.Pop().ToString());
+              ilMain.EmitCall(OpCodes.Call,mwrite,null);
+            }else if(q[j] == "NMG"){
+              Ms.Underflow(stk,1,t,i,j);
+              Console.Write(stk.Pop().ToString());
               ilMain.EmitCall(OpCodes.Call,mwrite,null);
             }else if(q[j] == "EXT"){
               Environment.Exit(0);

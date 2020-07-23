@@ -1,5 +1,5 @@
 ![](https://storage.googleapis.com/replit/images/1593218325636_c176cdd8d0b9c70f1102fcf77353d9b8.png)
-# Stekovaya v1.1.1
+# Stekovaya v1.2.0
 
 ## The Stack
 Push the numbers 1, 2, 7, 3 onto the stack
@@ -25,10 +25,13 @@ Pops the value at the top of the stack into the console
 STR This is in the console END MSG
 ```
 
-### REM
+### REM, RMS, RME
 Used for comments
 ```
 REM This is a comment, so it will not be interpreted
+RMS
+Multiline comment
+RME
 ```
 
 ### DEF
@@ -149,6 +152,7 @@ EFOR
 
 ### DMSG
 Prints the value at the top of the stack into the console
+
 **Note**: DMSG doesnt pop stack.
 ```
 1 DMSG
@@ -250,25 +254,44 @@ Load package, you can select package from these packages
  - Include.Util.File
  - Include.Util.Error
 
-Include.Util.Stdin is for INP, Include.Util.File is for control file, Include.Util.Error is for generate error / warn
+Include.Util.Stdin is for INP, Include.Util.File is for control file, Include.Util.Error is for generate error / warn and stderr
 ```
 "Include.Util.Stdin" INC
 "Include.Util.File" INC
 "Include.Util.Error" INC
+
 STR Message  END INP
 REM Get input from user
+
 STR Filename END STR Content END WRT
 REM Write to file
+
 STR Filename END RED
 REM Read file and push content to stack
+
 STR Filename END DEL
 REM Delete file
+
 STR Filename END EXS
 REM If found file then push 1 if not then push 0
+
 STR Error END ERR
 REM Generate error
+
 STR Warn END WRN
 REM Generate warn
+
+STR Error END WTE
+REM write to stderr
+
+STR Error END NWE
+REM write to stderr, but without newline
+
+STR Error END DNWE
+REM write to stderr, but without newline and pop
+
+STR Error END WTE
+REM write to stderr, but without pop
 ```
 
 ### SCO
@@ -372,6 +395,31 @@ Plot to x,y and set color to r,g,b ( note, bitmap size is 100x100 )
 Output bitmap to file
 ```
 "test.png" SVE
+```
+### CLS
+Clear screen
+```
+CLS
+```
+
+### BEL
+Play beep sound
+```
+BEL
+```
+
+### NMG
+Pops the value at the top of the stack into the console without newline
+```
+STR This is in the console END NMG
+```
+
+### DNMG
+Prints the value at the top of the stack into the console without newline
+
+**Note**: DMNG doesnt pop stack.
+```
+1 DMNG
 ```
 
 ### Escaped strings
