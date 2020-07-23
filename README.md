@@ -1,5 +1,5 @@
 # README
-[![](https://repl.it/badge/github/stekovaya-org/Template)](https://repl.it/github/stekovaya-org/Template)
+[![](https://repl.it/badge/github/stekovaya-org/Template)](https://repl.it/github/stekovaya-org/Template)![](https://img.shields.io/badge/Status-Stable-yellow.svg?style=flat-square)![](https://img.shields.io/github/repo-size/stekovaya-org/Template.svg?label=Repo%20size&style=flat-square)
 ## Usage
 `stkvy.exe file` - Run program by file.
 
