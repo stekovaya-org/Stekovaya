@@ -417,9 +417,9 @@ STR This is in the console END NMG
 ### DNMG
 Prints the value at the top of the stack into the console without newline
 
-**Note**: DMNG doesnt pop stack.
+**Note**: DNMG doesnt pop stack.
 ```
-1 DMNG
+1 DNMG
 ```
 
 ### Escaped strings
