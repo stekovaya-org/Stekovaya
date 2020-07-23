@@ -419,7 +419,7 @@ Prints the value at the top of the stack into the console without newline
 
 **Note**: DNMG doesnt pop stack.
 ```
-1 DNMG
+1 DMNG
 ```
 
 ### Escaped strings

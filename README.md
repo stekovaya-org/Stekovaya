@@ -30,6 +30,8 @@
 
 [Example for input test](sample/console/yourname.stk)
 
+[Example for like platformer](sample/console/likerogue.stk)
+
 [Example for draw square](sample/graphic/square.stk)
 
 [Source codes folder](src)

@@ -1,0 +1,65 @@
+"Include.Util.Stdin" INC
+"┓" DUP DEF
+"┗" DUP DEF
+"┏" DUP DEF
+"┛" DUP DEF
+"━" DUP DEF
+"┃" DUP DEF
+"." DUP DEF
+"%" DUP DEF
+"?" DUP DEF
+"ox" 2 DEF
+"oy" 2 DEF
+"x" 2 DEF
+"y" 2 DEF
+"f" 0 DEF
+"i" 0 DEF
+"hp" 100 DEF
+┏ ━ ━ ━ ┓ 5 "M-0-0" ARR
+┃ . "A" "A" ┃ 5 "M-0-1" ARR
+┃ . . "A" ┃ 5 "M-0-2" ARR
+┃ "A" . "A" ┃ 5 "M-0-3" ARR
+┗ ┓ . ┏ ┛ 5 "M-0-4" ARR
+┏ ┛ . ┗ ┓ ┏ ━ ━ ━ ┓ 10 "M-0-5" ARR
+┃ . . . ┗ ┛ . . . ┃ 10 "M-0-6" ARR
+┃ . . . . . . "#" . ┃ 10 "M-0-7" ARR
+┃ . . . ┏ ┓ "!" . % ┃ 10 "M-0-8" ARR
+┗ ━ ━ ━ ┛ ┗ ━ ━ ━ ┛ 10 "M-0-9" ARR
+┏ ━ ━ ━ ┓ 5 "M-1-0" ARR
+┃ . . . ┃ 5 "M-1-1" ARR
+┃ . ? . ┃ 5 "M-1-2" ARR
+┃ . . ? ┃ 5 "M-1-3" ARR
+┗ ┓ . ┏ ┛ 5 "M-1-4" ARR
+┏ ┛ . ┗ ┓ ┏ ━ ━ ━ ┓ 10 "M-1-5" ARR
+┃ . . . ┗ ┛ . . . ┃ 10 "M-1-6" ARR
+┃ . . . . . . "A" . ┃ 10 "M-1-7" ARR
+┃ . . . ┏ ┓ .  . ┃ 10 "M-1-8" ARR
+┗ ━ ━ ━ ┛ ┗ ━ ━ ━ ┛ 10 "M-1-9" ARR
+CLS
+"N" 0 DEF "i" 0 DEF
+hp 0 LEQ THN STR You died... END MSG EXT
+x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "%" EQU THN "x" 2 DEF "y" 2 DEF "f" f 1 ADD DEF 38 JBL
+x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "!" EQU THN "mh" RND 11 MUL FLR DEF STR You drinked potion! +{mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF 46 JBL
+x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "?" EQU THN "mh" RND 51 MUL FLR 50 SUB DEF STR You opened cursed scroll! {mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF 46 JBL
+x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "A" EQU THN "mh" RND 11 MUL FLR 10 SUB DEF STR You touched to spike! {mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF 46 JBL
+x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "." EQU NOT THN "x" ox DEF "y" oy DEF
+hp 0 LEQ THN CLS STR You died... END MSG EXT
+FOR
+_F00 "M-" f SCO "-" SCO N SCO ETF NMG
+"M-" f SCO "-" SCO N SCO LEN 1 SUB _F00 EQU THN BRK
+EFOR
+STR END MSG
+"N" N 1 ADD DEF
+N 10 NEQ THN 47 JBL
+"py" y DEF
+i THN "py" y 1 ADD DEF
+"\ESC[" py SCO ";" SCO x SCO "H" SCO "@" SCO MSG
+"K" STR \ESC[ END N 5 ADD SCO STR ;0HHP:  END hp SCO STR \CRT\LFDwasd:  END SCO SCO INP DEF
+"ox" x DEF
+"oy" y DEF
+K "w" EQU THN "y" y 1 SUB DEF
+K "a" EQU THN "x" x 1 SUB DEF
+K "s" EQU THN "y" y 1 ADD DEF
+K "d" EQU THN "x" x 1 ADD DEF
+hp 0 LEQ THN CLS STR You died... END MSG EXT
+38 JBL
