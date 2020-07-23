@@ -32,6 +32,8 @@
 
 [Example for like platformer](sample/console/likerogue.stk)
 
+[Example for calculate pi by monte carlo](sample/console/montecarlo.stk)
+
 [Example for draw square](sample/graphic/square.stk)
 
 [Source codes folder](src)
