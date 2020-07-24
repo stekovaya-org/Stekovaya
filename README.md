@@ -34,6 +34,8 @@
 
 [Example for calculate pi by monte carlo](sample/console/montecarlo.stk)
 
+[Example for display hello world](sample/console/helloworld.stk)
+
 [Example for draw square](sample/graphic/square.stk)
 
 [Source codes folder](src)
