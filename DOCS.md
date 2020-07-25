@@ -422,6 +422,12 @@ Prints the value at the top of the stack into the console without newline
 1 DMNG
 ```
 
+### EAR
+Edit array content
+```
+0 "array" "content" EAR
+```
+
 ### Escaped strings
 Here is the list
  - `\ESC` Escape (U+001B)

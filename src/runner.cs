@@ -89,7 +89,7 @@ namespace SEPL {
         bool b = true;
         try{
           foreach(string x in nn) decimal.Parse(x);
-        }catch(Exception){
+        }catch{
           b = false;
         }
         return b;
@@ -98,7 +98,25 @@ namespace SEPL {
         bool b = true;
         try{
           decimal.Parse(nm);
-        }catch(Exception){
+        }catch{
+          b = false;
+        }
+        return b;
+      }
+      public static bool IsUint(string nm){
+        bool b = true;
+        try{
+          uint.Parse(nm);
+        }catch{
+          b = false;
+        }
+        return b;
+      }
+      public static bool IsDouble(string nm){
+        bool b = true;
+        try{
+          double.Parse(nm);
+        }catch{
           b = false;
         }
         return b;
@@ -243,6 +261,42 @@ namespace SEPL {
               eme = true;
             }else if(q[j] == "RME"){
               eme = false;
+            }else if(q[j] == "EAR"){
+              Ms.Underflow(stk,3,t,i,j);
+              string h = stk.Pop().ToString();
+							string v = stk.Pop().ToString();
+							string c = stk.Pop().ToString();
+							if(hash.ContainsKey(v)){
+							  var vl = new System.Collections.Generic.List<string>();
+							  try{
+                vl = (System.Collections.Generic.List<string>)hash[v];
+							  }catch{
+                  int slcn = 0;
+								  string slct = string.Join(" ",t.Select(x=>{
+									  slcn++;
+									  return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+								  }));
+								  throw new UndefinedException($"\r\n:{i+1}: \"{v}\" isnt array\r\n{slct}");
+                }
+                if(!Ms.IsUint(c)){
+                  int slcn = 0;
+                  string slc = string.Join(" ",t.Select(x=>{
+                    slcn++;
+                    return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                  }));
+                  throw new CalculationException($"\r\n:{i+1}: Index must be a number\r\n{slc}");
+                }else{
+                  vl[int.Parse(c)] = h;
+                  hash[v] = vl;
+                }
+              }else{
+								int slcn = 0;
+								string slct = string.Join(" ",t.Select(x=>{
+									slcn++;
+									return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+								}));
+                throw new UndefinedException($"\r\n:{i+1}: Undefined array\r\n{slct}");
+              }
             }else if(q[j] == "RND"){
               stk.Push(Convert.ToDecimal(Rnd.NextDouble()));
             }else if(q[j] == "FLR"){

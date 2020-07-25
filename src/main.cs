@@ -20,7 +20,7 @@ class MainClass {
   public static void Main (string[] args) {
     MainClass mc = new MainClass();
     if(args.Length == 0){
-      Console.WriteLine("Stekovaya 1.2.0, Copyright (C) 2020 TheForArkLD, Jakman, SixBeeps, SpaceFire, RaidTheWeb.\r\nType '.bye' to exit\r\nType '.license' to display license");
+      Console.WriteLine("Stekovaya 1.3.0, Copyright (C) 2020 TheForArkLD, Jakman, SixBeeps, SpaceFire, RaidTheWeb.\r\nType '.bye' to exit\r\nType '.license' to display license");
       while(true){
         Console.Write(">>> ");
         string q = Console.ReadLine();

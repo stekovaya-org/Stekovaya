@@ -16,3 +16,5 @@
  - Added BEL command
  - Added NMG command
  - Added DNMG command
+## v1.3.0
+ - Added EAR command
