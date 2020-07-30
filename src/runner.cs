@@ -281,9 +281,9 @@ namespace SEPL {
                   }));
                   throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
                 }
-                hash[h] = c.Split(v).ToList();
+                hash[h] = Regex.Split(c,v).ToList();
               }else{
-                hash.Add(h,c.Split(v).ToList());
+                hash.Add(h,Regex.Split(c,v).ToList());
               }
             }else if(q[j] == "EAR"){
               Ms.Underflow(stk,3,t,i,j);
