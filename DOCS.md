@@ -1,5 +1,5 @@
 ![](https://storage.googleapis.com/replit/images/1593218325636_c176cdd8d0b9c70f1102fcf77353d9b8.png)
-# Stekovaya v1.2.0
+# Stekovaya v1.4.0
 
 ## The Stack
 Push the numbers 1, 2, 7, 3 onto the stack
@@ -426,6 +426,23 @@ Prints the value at the top of the stack into the console without newline
 Edit array content
 ```
 0 "array" "content" EAR
+```
+### DAT
+Get local time
+```
+DAT
+```
+
+### UTC
+Get UTC time
+```
+UTC
+```
+
+### SPL
+Split string
+```
+"string" "splitby" "VariableName" SPL
 ```
 
 ### Escaped strings

@@ -18,3 +18,7 @@
  - Added DNMG command
 ## v1.3.0
  - Added EAR command
+## v1.4.0
+ - Added DAT command
+ - Added UTC command
+ - Added SPL command

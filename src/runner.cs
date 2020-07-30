@@ -261,6 +261,30 @@ namespace SEPL {
               eme = true;
             }else if(q[j] == "RME"){
               eme = false;
+            }else if(q[j] == "DAT"){
+              DateTime dtn = DateTime.Now;
+              stk.Push(dtn.ToLocalTime());
+            }else if(q[j] == "UTC"){
+              DateTime dtn = DateTime.UtcNow;
+              stk.Push(dtn.ToUniversalTime());
+            }else if(q[j] == "SPL"){
+              Ms.Underflow(stk,3,t,i,j);
+              string h = stk.Pop().ToString();
+              string v = stk.Pop().ToString();
+              string c = stk.Pop().ToString();
+              if(hash.ContainsKey(h)){
+                if(Regex.Replace(h,@"^_[^\n]+$","") == ""){
+                  int slcn = 0;
+                  string slc = string.Join(" ",t.Select(x=>{
+                    slcn++;
+                    return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                  }));
+                  throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
+                }
+                hash[h] = c.Split(v).ToList();
+              }else{
+                hash.Add(h,c.Split(v).ToList());
+              }
             }else if(q[j] == "EAR"){
               Ms.Underflow(stk,3,t,i,j);
               string h = stk.Pop().ToString();
@@ -286,6 +310,14 @@ namespace SEPL {
                   }));
                   throw new CalculationException($"\r\n:{i+1}: Index must be a number\r\n{slc}");
                 }else{
+                  if(Regex.Replace(v,@"^_[^\n]+$","") == ""){
+                    int slcn = 0;
+                    string slc = string.Join(" ",t.Select(x=>{
+                      slcn++;
+                      return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                    }));
+                    throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
+                  }
                   vl[int.Parse(c)] = h;
                   hash[v] = vl;
                 }
@@ -881,6 +913,14 @@ namespace SEPL {
 								  }));
 								  throw new UndefinedException($"\r\n:{i+1}: \"{h}\" isnt array\r\n{slct}");
                 }
+                if(Regex.Replace(h,@"^_[^\n]+$","") == ""){
+                  int slcn = 0;
+                  string slc = string.Join(" ",t.Select(x=>{
+                    slcn++;
+                    return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                  }));
+                  throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
+                }
                 vl.Add(v);
                 hash[h] = vl;
               }else{
@@ -905,6 +945,14 @@ namespace SEPL {
 									  return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
 								  }));
 								  throw new UndefinedException($"\r\n:{i+1}: \"{h}\" isnt array\r\n{slct}");
+                }
+                if(Regex.Replace(h,@"^_[^\n]+$","") == ""){
+                  int slcn = 0;
+                  string slc = string.Join(" ",t.Select(x=>{
+                    slcn++;
+                    return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                  }));
+                  throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
                 }
                 string hn = vl[vl.Count - 1].ToString();
                 vl.RemoveAt(vl.Count - 1);
@@ -970,6 +1018,14 @@ namespace SEPL {
               }
               arrl.Reverse();
               if(hash.ContainsKey(h)){
+                if(Regex.Replace(h,@"^_[^\n]+$","") == ""){
+                  int slcn = 0;
+                  string slc = string.Join(" ",t.Select(x=>{
+                    slcn++;
+                    return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                  }));
+                  throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
+                }
                 hash[h] = arrl;
               }else{
                 hash.Add(h,arrl);
