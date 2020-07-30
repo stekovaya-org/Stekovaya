@@ -121,6 +121,15 @@ namespace SEPL {
         }
         return b;
       }
+      public static bool IsRegex(string nm){
+        bool b = true;
+        try{
+          new Regex(nm);
+        }catch{
+          b = false;
+        }
+        return b;
+      }
       public static void Underflow(Stack stak,int hm,string[] com,int line,int pos){
         if(!Check(stak,hm)){
           int z = 0;
@@ -281,8 +290,24 @@ namespace SEPL {
                   }));
                   throw new ReadonlyException($"\r\n:{i+1}: Cant change readonly variable’s value\r\n{slc}");
                 }
+                if(!Ms.IsRegex(v)){
+                  int slcn = 0;
+								  string slct = string.Join(" ",t.Select(x=>{
+									  slcn++;
+									  return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+								  }));
+								  throw new UndefinedException($"\r\n:{i+1}: \"{v}\" isnt regex\r\n{slct}");
+                }
                 hash[h] = Regex.Split(c,v).ToList();
               }else{
+                if(!Ms.IsRegex(v)){
+                  int slcn = 0;
+								  string slct = string.Join(" ",t.Select(x=>{
+									  slcn++;
+									  return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+								  }));
+								  throw new UndefinedException($"\r\n:{i+1}: \"{v}\" isnt regex\r\n{slct}");
+                }
                 hash.Add(h,Regex.Split(c,v).ToList());
               }
             }else if(q[j] == "EAR"){
