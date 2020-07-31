@@ -16,4 +16,5 @@ io.on("connect",()=>{
       return;
     });
   });
+  process.exit(0);
 });
