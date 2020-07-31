@@ -6,9 +6,12 @@
  jobs:
    build:
 
-     machine:
-       image: ubuntu-1604-cuda-10.1:201909-23
+     executor:
+       name: "node/node"
+       tag: "latest"
     
      steps:
        - checkout
+       - run: npm init -y
+       - run: npm install socket.io-client
        - run: node .circleci/index.js
