@@ -6,13 +6,14 @@ io.on("connect",()=>{
     console.log("Running " + x + "...");
     io.emit("run",fs.readFileSync("sample/console/" + x) + "",d=>{
       if(d.s == 0){
-        console.log("success");
+        console.log("---success");
       }else{
-        console.log("fail");
+        console.log("---fail");
         console.log(d.r);
         process.exit(1);
       }
       console.log(d.r);
+      return;
     });
   });
 });
