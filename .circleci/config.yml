@@ -9,4 +9,5 @@
     
      steps:
        - checkout
-       - run: dotnet build
+       - run: mcs src/main.cs src/runner.cs -out:stkvy.exe
+       - run: mono stkvy.exe sample/helloworld.stk
