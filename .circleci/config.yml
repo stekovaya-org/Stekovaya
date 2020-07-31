@@ -7,7 +7,7 @@
    build:
 
      executor:
-       name: "node/node"
+       name: node/node
        tag: "latest"
     
      steps:
