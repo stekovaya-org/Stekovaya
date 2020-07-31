@@ -1,4 +1,4 @@
-name: .NET Core
+name: Mono
 
 on:
   push:
@@ -13,13 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - name: Setup Mono
+      uses: actions/setup-mono-complete@v1
       with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
+        mono-complete: 6.8.0.123
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: mcs src/main.cs -out:stkvy.exe -r:/usr/lib/mono/4.8-api/System.Drawing.dll
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: mono stkvy.exe sample/console/helloworld.stk
