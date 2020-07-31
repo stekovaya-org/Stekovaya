@@ -12,9 +12,13 @@
     
      steps:
        - checkout
-       - run: npm init -y
-       - run: npm install socket.io-client
-       - run: node .circleci/index.js
+       - node/with-cache:
+           dir: ~/.circleci/node_modules
+           cache-version: v1
+           steps:
+           - run: npm init -y
+           - run: npm install socket.io-client
+           - run: node .circleci/index.js
 
  workflows:
    version: 2
