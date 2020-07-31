@@ -1,13 +1,13 @@
  version: 2.1
 
- orbs:
-  win: circleci/windows@2.2.0
 
  jobs:
    build:
-     executor: win/default     
+
+     machine:
+       image: ubuntu-1604-cuda-10.1:201909-23
     
      steps:
        - checkout
-       - run: mcs src/main.cs src/runner.cs -out:stkvy.exe
+       - run: mcs src/main.cs src/runner.cs -r:/usr/lib/mono/4.8-api/System.Drawing.dll -out:stkvy.exe
        - run: mono stkvy.exe sample/helloworld.stk
