@@ -15,8 +15,9 @@
        - run: npm init -y
        - run: npm install socket.io-client
        - run: node .circleci/index.js
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
+
+ workflows:
+   version: 2
+   build:
+     jobs:
+       - build
