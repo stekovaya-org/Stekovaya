@@ -4,7 +4,7 @@ var i = 0;
 io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
   var fc = (function(){
-    if(!ds[i - 1] || !ds[i]) process.exit(0);
+    if((i != 0 ? !ds[i - 1] : false) || !ds[i]) process.exit(0);
     i++;
     var x = ds[i - 1];
     if(x == "likerogue.stk" || x == "montecarlo.stk" || x == "pi.stk" || x == "fibonacci.stk" || x == "yourname.stk") return;
