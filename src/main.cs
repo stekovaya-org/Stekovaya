@@ -2,8 +2,13 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Text.RegularExpressions;
+using System.Linq;
 //SEPL.Runner.Run(program); for run
 class MainClass {
+  public static void Center(string ascii){
+    var spcs = new string[(int)Math.Floor((decimal)((Console.WindowWidth - ascii.Replace("\r","").Split("\n").Select(x=>x.Length).ToArray().Max()) / 2))];
+    Console.WriteLine(string.Join("\r\n",ascii.Replace("\r","").Split("\n").Select(x=>string.Join(" ",spcs) + x).ToArray()));
+  }
   public string ReadAll(string pass){
     if(File.Exists(pass)){
       if(String.IsNullOrWhiteSpace(Regex.Match(pass,@"\.stk$").Value)){
@@ -20,6 +25,12 @@ class MainClass {
   public static void Main (string[] args) {
     MainClass mc = new MainClass();
     if(args.Length == 0){
+      Center(@"   _____   __           __                                         
+  / ___/  / /_  ___    / /__  ____  _   __  ____ _   __  __  ____ _
+  \__ \  / __/ / _ \  / //_/ / __ \| | / / / __ `/  / / / / / __ `/
+ ___/ / / /_  /  __/ / ,<   / /_/ /| |/ / / /_/ /  / /_/ / / /_/ / 
+/____/  \__/  \___/ /_/|_|  \____/ |___/  \__,_/   \__, /  \__,_/  
+                                                  /____/           ");
       Console.WriteLine("Stekovaya 1.4.1, Copyright (C) 2020 TheForArkLD, Jakman, SixBeeps, SpaceFire, RaidTheWeb.\r\nType '.bye' to exit\r\nType '.license' to display license");
       while(true){
         Console.Write(">>> ");
