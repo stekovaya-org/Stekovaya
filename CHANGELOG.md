@@ -22,3 +22,6 @@
  - Added DAT command
  - Added UTC command
  - Added SPL command
+## v1.4.1
+ - Changed ETF's action
+ - Changed EAR's action

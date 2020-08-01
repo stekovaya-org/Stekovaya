@@ -1,5 +1,5 @@
 ![](https://storage.googleapis.com/replit/images/1593218325636_c176cdd8d0b9c70f1102fcf77353d9b8.png)
-# Stekovaya v1.4.0
+# Stekovaya v1.4.1
 
 ## The Stack
 Push the numbers 1, 2, 7, 3 onto the stack
@@ -316,7 +316,7 @@ Calculate LCM(m,n)
 ### ETF
 Get element from array
 ```
-0 "name" ETF
+"name" 0 ETF
 ```
 
 ### FLR
@@ -425,7 +425,7 @@ Prints the value at the top of the stack into the console without newline
 ### EAR
 Edit array content
 ```
-0 "array" "content" EAR
+"array" 0 "content" EAR
 ```
 ### DAT
 Get local time

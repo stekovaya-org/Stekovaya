@@ -38,14 +38,14 @@
 CLS
 "N" 0 DEF "i" 0 DEF
 hp 0 LEQ THN STR You died... END MSG EXT
-x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "%" EQU THN "x" 2 DEF "y" 2 DEF "f" f 1 ADD DEF 38 JBL
-x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "!" EQU THN "mh" RND 11 MUL FLR DEF STR You drinked potion! +{mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF 46 JBL
-x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "?" EQU THN "mh" RND 51 MUL FLR 50 SUB DEF STR You opened cursed scroll! {mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF 46 JBL
-x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "A" EQU THN "mh" RND 11 MUL FLR 10 SUB DEF STR You touched to spike! {mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF 46 JBL
-x 1 SUB "M-" f SCO "-" SCO y 1 SUB SCO ETF "." EQU NOT THN "x" ox DEF "y" oy DEF
+"M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB ETF "%" EQU THN "x" 2 DEF "y" 2 DEF "f" f 1 ADD DEF 38 JBL
+"M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB ETF "!" EQU THN "mh" RND 11 MUL FLR DEF STR You drinked potion! +{mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF "M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB "." EAR 46 JBL
+"M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB ETF "?" EQU THN "mh" RND 51 MUL FLR 50 SUB DEF STR You opened cursed scroll! {mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF "M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB "." EAR 46 JBL
+"M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB ETF "A" EQU THN "mh" RND 11 MUL FLR 10 SUB DEF STR You touched to spike! {mh}HP(s) END MSG "hp" hp mh ADD DEF "i" 1 DEF "M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB "." EAR 46 JBL
+"M-" f SCO "-" SCO y 1 SUB SCO x 1 SUB ETF "." EQU NOT THN "x" ox DEF "y" oy DEF
 hp 0 LEQ THN CLS STR You died... END MSG EXT
 FOR
-_F00 "M-" f SCO "-" SCO N SCO ETF NMG
+"M-" f SCO "-" SCO N SCO _F00 ETF NMG
 "M-" f SCO "-" SCO N SCO LEN 1 SUB _F00 EQU THN BRK
 EFOR
 STR END MSG

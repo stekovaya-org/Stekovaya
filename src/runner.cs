@@ -313,8 +313,8 @@ namespace SEPL {
             }else if(q[j] == "EAR"){
               Ms.Underflow(stk,3,t,i,j);
               string h = stk.Pop().ToString();
-							string v = stk.Pop().ToString();
 							string c = stk.Pop().ToString();
+							string v = stk.Pop().ToString();
 							if(hash.ContainsKey(v)){
 							  var vl = new System.Collections.Generic.List<string>();
 							  try{
@@ -993,8 +993,8 @@ namespace SEPL {
               }
             }else if(q[j] == "ETF"){
 							Ms.Underflow(stk,2,t,i,j);
-              string h = stk.Pop().ToString();
               string hs = stk.Pop().ToString();
+              string h = stk.Pop().ToString();
               if(hash.ContainsKey(h)){
                 bool isthisnum = true;
                 try{
