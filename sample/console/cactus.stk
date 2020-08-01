@@ -1,0 +1,35 @@
+STR  _    ____          _    ____          _    ____        END
+STR | |  /    \        | |  /    \        | |  /    \       END
+STR | | |      |  _    | | |      |  _    | | |      |  _   END
+STR | | |      | | |   | | |      | | |   | | |      | | |  END
+STR | |_|      | | |   | |_|      | | |   | |_|      | | |  END
+STR |___       | | |   |___       | | |   |___       | | |  END
+STR     |      |_| |       |      |_| |       |      |_| |  END
+STR     |       ___|       |       ___|       |       ___|  END
+STR     |      |           |      |           |      |      END
+STR   __|______|__       __|______|__       __|______|__    END
+STR   \          /       \          /       \          /    END
+STR    \________/         \________/         \________/     END
+12 "cactus0" ARR
+STR       ____    _          ____    _          ____    _   END
+STR      /    \  | |        /    \  | |        /    \  | |  END
+STR  _  |      | | |    _  |      | | |    _  |      | | |  END
+STR | | |      | | |   | | |      | | |   | | |      | | |  END
+STR | | |      |_| |   | | |      |_| |   | | |      |_| |  END
+STR | | |       ___|   | | |       ___|   | | |       ___|  END
+STR | |_|      |       | |_|      |       | |_|      |      END
+STR |___       |       |___       |       |___       |      END
+STR     |      |           |      |           |      |      END
+STR   __|______|__       __|______|__       __|______|__    END
+STR   \          /       \          /       \          /    END
+STR    \________/         \________/         \________/     END
+12 "cactus1" ARR
+"p" 0 DEF
+"q" 0 DEF
+CLS
+"d" 0 DEF
+"cactus" q SCO d ETF MSG
+"d" d 1 ADD DEF
+"cactus" q SCO LEN d NEQ THN 31 JBL
+"p" p 1 ADD DEF
+p 100 NEQ THN "q" q NOT DEF 500 SLP 29 JBL
