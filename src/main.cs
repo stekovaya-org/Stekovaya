@@ -6,8 +6,8 @@ using System.Linq;
 //SEPL.Runner.Run(program); for run
 class MainClass {
   public static void Center(string ascii){
-    var spcs = new string[(int)Math.Floor((decimal)((Console.WindowWidth - ascii.Replace("\r","").Split("\n").Select(x=>x.Length).ToArray().Max()) / 2))];
-    Console.WriteLine(string.Join("\r\n",ascii.Replace("\r","").Split("\n").Select(x=>string.Join(" ",spcs) + x).ToArray()));
+    var spcs = new string[(int)Math.Floor((decimal)((Console.WindowWidth - ascii.Replace("\r","").Split(new char[]{'\n'}).Select(x=>x.Length).ToArray().Max()) / 2))];
+    Console.WriteLine(string.Join("\r\n",ascii.Replace("\r","").Split(new char[]{'\n'}).Select(x=>string.Join(" ",spcs) + x).ToArray()));
   }
   public string ReadAll(string pass){
     if(File.Exists(pass)){

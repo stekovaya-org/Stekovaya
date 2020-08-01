@@ -156,7 +156,7 @@ namespace SEPL {
       }
       public static string[] Include(string name,string[] t,int i,int j){
         //string comn = name.Split(".")[2];
-        string[] coma = name.Split(".");
+        string[] coma = name.Split(new char[]{'.'});
         if(!(coma.Length >= 3)){
           Console.WriteLine("\x1B[1m\x1B[33mwarn: \x1B[mPackage \"" + name + "\" unrecognized");
           return new string[0]{};
