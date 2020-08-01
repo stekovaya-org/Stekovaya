@@ -1,12 +1,13 @@
 var io = require("socket.io-client")("https://server.stekovaya.repl.co");
 var fs = require("fs");
 var i = -1;
+var dl = JSON.parse(fs.readFileSync(".circleci/dening.json") + "");
 io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
   function fc(){
     var x = ds[++i];
     process.stdout.write("Running " + x + "...   ");
-    if(x == "fibonacci.stk" || x == "likerogue.stk" || x == "pi.stk" || x == "montecarlo.stk" || x == "yourname.stk" || x == "cactus.stk"){
+    if(dl.includes(x)){
       console.log("denied");
       if(i + 1 == ds.length){
         process.exit(0);
