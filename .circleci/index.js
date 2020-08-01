@@ -17,7 +17,7 @@ io.on("connect",()=>{
         process.exit(1);
       }
       console.log(d.r);
-      if(i == fs.readdirSync("sample/console").length){
+      if(i == ds.length){
         process.exit(0);
       }else{
         fc();
