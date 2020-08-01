@@ -17,7 +17,11 @@ io.on("connect",()=>{
       }
       console.log(d.r);
     });
-    if(i + 1 == ds.length) process.exit(0);
+    if(i + 1 == ds.length){
+      process.exit(0);
+    }else{
+      fc();
+    }
   }
   fc();
 });
