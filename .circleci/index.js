@@ -3,8 +3,9 @@ var fs = require("fs");
 var i = -1;
 io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
+  var fc;
   try{
-  function fc(){
+  fc = function(){
     var x = ds[++i];
     process.stdout.write("Running " + x + "...   ");
     if(x == "fibonacci.stk" || x == "likerogue.stk" || x == "pi.stk" || x == "montecarlo.stk" || x == "yourname.stk" || x == "cactus.stk"){
@@ -31,7 +32,7 @@ io.on("connect",()=>{
         fc();
       }
     });
-  }
+  };
   }catch(e){
     fc();
   }
