@@ -1,7 +1,7 @@
 var io = require("socket.io-client")("https://server.stekovaya.repl.co");
 var fs = require("fs");
+var i = 0;
 io.on("connect",()=>{
-  var i = 0;
   var ds = fs.readdirSync("sample/console");
   var fc = (function(){
     i++;
