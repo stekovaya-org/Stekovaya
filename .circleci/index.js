@@ -3,6 +3,7 @@ var fs = require("fs");
 var i = -1;
 io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
+  try{
   function fc(){
     var x = ds[++i];
     process.stdout.write("Running " + x + "...   ");
@@ -11,8 +12,7 @@ io.on("connect",()=>{
       if(i + 1 == ds.length){
         process.exit(0);
       }else{
-        fc();
-        return;
+        throw new Error();
       }
     }
     console.log("running");
@@ -31,6 +31,9 @@ io.on("connect",()=>{
         fc();
       }
     });
+  }
+  }catch(e){
+    fc();
   }
   fc();
 });
