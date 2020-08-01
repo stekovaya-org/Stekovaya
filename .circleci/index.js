@@ -25,12 +25,12 @@ io.on("connect",()=>{
         console.log("----success---");
       }
       console.log(d.r);
+      if(i + 1 == ds.length){
+        process.exit(0);
+      }else{
+        fc();
+      }
     });
-    if(i + 1 == ds.length){
-      process.exit(0);
-    }else{
-      fc();
-    }
   }
   fc();
 });
