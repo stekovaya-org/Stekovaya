@@ -1,26 +1,22 @@
 var io = require("socket.io-client")("https://server.stekovaya.repl.co");
 var fs = require("fs");
-var i = 0;
+var i = -1;
 io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
-    if((i != 0 ? !ds[i - 1] : false) || !ds[i]) process.exit(0);
-    i++;
-    var x = ds[i - 1];
-    if(x == "likerogue.stk" || x == "montecarlo.stk" || x == "pi.stk" || x == "fibonacci.stk" || x == "yourname.stk") return;
-    console.log("Running " + x + "...");
-    io.emit("run",fs.readFileSync("sample/console/" + ds[i - 1]) + "",d=>{
-      if(d.s == 0){
-        console.log("---success");
-      }else{
-        console.log("---fail");
+  function fc(){
+    var x = ds[++i];
+    if(x == "fibonacci.stk" || x == "likerogue.stk" || x == "pi.stk" || x == "montecarlo.stk" || x == "yourname.stk") return;
+    io.emit("run",fs.readFileSync("sample/console/" + x) + "",d=>{
+      if(d.s == 1){
+        console.log("-----fail-----");
         console.log(d.r);
         process.exit(1);
+      }else{
+        console.log("----success---");
       }
       console.log(d.r);
-      io.disconnect();
-      if(i == ds.length){
-        process.exit(0);
-      }else{
-      }
     });
+    if(i + 1 == ds.length) process.exit(0);
+  }
+  fc();
 });
