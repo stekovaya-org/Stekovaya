@@ -3,7 +3,6 @@ var fs = require("fs");
 var i = 0;
 io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
-  var fc = (function(){
     if((i != 0 ? !ds[i - 1] : false) || !ds[i]) process.exit(0);
     i++;
     var x = ds[i - 1];
@@ -22,9 +21,6 @@ io.on("connect",()=>{
       if(i == ds.length){
         process.exit(0);
       }else{
-        fc();
       }
     });
-  });
-  fc();
 });
