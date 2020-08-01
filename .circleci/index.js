@@ -5,7 +5,7 @@ io.on("connect",()=>{
   var ds = fs.readdirSync("sample/console");
   function fc(){
     var x = ds[++i];
-    console.log("Running " + x "...");
+    console.log("Running " + x + "...");
     if(x == "fibonacci.stk" || x == "likerogue.stk" || x == "pi.stk" || x == "montecarlo.stk" || x == "yourname.stk" || x == "cactus.stk") return;
     io.emit("run",fs.readFileSync("sample/console/" + x) + "",d=>{
       if(d.s == 1){
