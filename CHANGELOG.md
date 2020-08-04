@@ -25,3 +25,4 @@
 ## v1.4.1
  - Changed ETF's action
  - Changed EAR's action
+ - Added MOD command

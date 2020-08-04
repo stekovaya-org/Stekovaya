@@ -731,6 +731,19 @@ namespace SEPL {
               fp = false;
               ilMain.Emit(OpCodes.Ldstr,Ms.FormatText(str));
               stk.Push(Ms.FormatText(str));
+            }else if(q[j] == "MOD"){
+              Ms.Underflow(stk,2,t,i,j);
+              string[] qu = {stk.Pop().ToString(),stk.Pop().ToString()};
+              if(!Ms.IsNum(qu)){
+                int slcn = 0;
+                string slc = string.Join(" ",t.Select(x=>{
+                  slcn++;
+                  return (slcn - 1 == j ? ">>> " + x + " <<<" : x);
+                }));
+                throw new CalculationException($"\r\n:{i+1}: Cant calc string % number / number % string\r\n{slc}");
+              }else{
+                stk.Push(decimal.Parse(qu[1]) % decimal.Parse(qu[0]));
+							}
             }else if(q[j] == "ADD"){
               Ms.Underflow(stk,2,t,i,j);
               string[] qu = {stk.Pop().ToString(),stk.Pop().ToString()};

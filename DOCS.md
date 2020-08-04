@@ -48,6 +48,12 @@ Outputs the entire stack to the console
 1 2 3 5 STK
 REM Outputs this: STACK<4> 1 2 3 5
 ```
+### MOD
+Calculate modulos the top two values of the stack and pushes the result
+```
+3 2 MOD MSG
+REM Prints 1
+```
 
 ### ADD
 Adds the top two values of the stack and pushes the result
