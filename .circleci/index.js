@@ -17,7 +17,7 @@ io.on("connect",()=>{
       }
     }
     console.log("running");
-    io.emit("run",fs.readFileSync("sample/console/" + x) + "",d=>{
+    io.emit("run-stekovaya",fs.readFileSync("sample/console/" + x) + "",d=>{
       if(d.s == 1){
         console.log("-----fail-----");
         console.log(d.r);
