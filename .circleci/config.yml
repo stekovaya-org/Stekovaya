@@ -12,8 +12,9 @@
        - checkout
        - run: sudo apt-get update
        - run: sudo apt-get install nodejs
-       - run: npm init -y
-       - run: npm install socket.io-client
+       - run: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+       - run: /tmp/apt-key-gpghome.7P00J5XAZ6/gpg.1.sh --keyserver hkp://keyserver.ubuntu.com:80 --recv 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+       - run: add-apt-repository -y 'deb https://download.mono-project.com/repo/ubuntu stable-bionic main'
        - run: node .circleci/index.js
 
  workflows:
