@@ -14,7 +14,7 @@
        - run: echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
        - run: sudo apt-get update
        - run: sudo apt-get build-dep mono-devel
-       - run: sudo apt-get build-essential mono-devel
+       - run: sudo apt-get install build-essential
        - run: sudo apt-get install mono-devel
        - run: sudo apt install nodejs
        - run: node .circleci/index.js
