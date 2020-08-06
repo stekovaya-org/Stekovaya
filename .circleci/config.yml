@@ -12,6 +12,7 @@
        - checkout
        - run: sudo add-apt-repository -y 'deb https://download.mono-project.com/repo/ubuntu stable-bionic main'
        - run: sudo apt-get update
+       - run: sudo apt-get install mono-complete
        - run: sudo apt-get install nodejs
        - run: node .circleci/index.js
 
