@@ -5,8 +5,8 @@
 
  jobs:
    build:
-     machine:
-       image: ubuntu:18.04
+     docker:
+       - image: "ubuntu:18.04"
     
      steps:
        - checkout
