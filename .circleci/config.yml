@@ -10,14 +10,27 @@
     
      steps:
        - checkout
-       - run: sudo apt-get update
-       - run: sudo apt-get install dirmngr gnupg apt-transport-https ca-certificates
-       - run: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-       - run: echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-       - run: sudo apt-get install -y mono-devel
-       - run: sudo apt-get install -y mono-reference-assemblies-4.0 mono-runtime-common libmono-system-runtime4.0-cil
-       - run: sudo apt install nodejs
-       - run: node .circleci/index.js
+       - run:
+           name: Update
+           command: sudo apt-get update
+       - run:
+           name: Install some packages
+           command: sudo apt-get install dirmngr gnupg apt-transport-https ca-certificates
+       - run:
+           name: Get thing from key
+           command: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+       - run:
+           name: Select stable-xenial
+           command: echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+       - run:
+           name: Install mono-complete
+           command: sudo apt-get install -y mono-complete
+       - run:
+           name: Install nodejs
+           command: sudo apt install nodejs
+       - run:
+           name: Check samples
+           command: node .circleci/index.js
 
  workflows:
    version: 2
