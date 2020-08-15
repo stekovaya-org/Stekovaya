@@ -24,7 +24,7 @@ function fc(){
     d.s = 1;
   }
   if(d.s == 1){
-    console.log("-----fail-----");
+    console.log("-----\x1b[1mfail\x1b[m-----");
     console.log(d.r);
     process.exit(1);
   }else{
