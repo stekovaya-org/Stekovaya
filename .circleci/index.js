@@ -14,7 +14,7 @@ function fc(){
       return;
     }
   }
-  console.log("running");
+  console.log("running...");
   var d = {};
   try{
     d.r = require("child_process").execSync("mono stkvy.exe sample/console/" + x + " 2>&1") + "";
